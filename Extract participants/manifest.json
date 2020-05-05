@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Extract Participants",
+  "description" : "Extract all participants of Microsoft Teams by one click and copy to clipboard",
+  "version": "1.0",
+  "icons" : {
+    "128" : "128.png",
+    "48" : "48.png",
+    "16" : "16.png"
+  },
+  "page_action" : {
+    "default_icon" : "16.png",
+    "default_popup" : "popup.html",
+    "default_title" : "Extract Participants"
+  },
+  "background" : {
+    "scripts" : ["eventPage.js"],
+    "persistent" : false
+  },
+  "content_scripts" : [
+    {
+      "matches" : ["https://teams.microsoft.com/*"],
+      "js" : ["content.js"]
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "https://teams.microsoft.com/*"
+  ]
+}
